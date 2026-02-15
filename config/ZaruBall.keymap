@@ -156,6 +156,12 @@
             key-positions = <64 32>;
             slow-release;
         };
+
+        Caret_combo {
+            bindings = <&kp CARET>;
+            key-positions = <14 15>;
+            layers = <0 1>;
+        };
     };
 
     keymap {
