@@ -132,25 +132,29 @@
 
         Home_Combo {
             bindings = <&kp HOME>;
-            key-positions = <16 63>;
+            key-positions = <63 32>;
             layers = <2>;
+            slow-release;
         };
 
         End_combo {
             bindings = <&kp END>;
-            key-positions = <16 65>;
+            key-positions = <65 32>;
             layers = <2>;
+            slow-release;
         };
 
         PageUP_combo {
             bindings = <&kp PAGE_UP>;
-            key-positions = <16 47>;
+            key-positions = <47 32>;
             layers = <2>;
+            slow-release;
         };
 
         PageDOWN_combo {
             bindings = <&kp PAGE_DOWN>;
-            key-positions = <16 64>;
+            key-positions = <64 32>;
+            slow-release;
         };
     };
 
@@ -186,8 +190,8 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
             bindings = <
 &kp GRAVE  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &trans  &trans  &trans  &trans            &kp F6  &kp F7         &kp F8    &kp F9         &kp F10  &kp F11
-&none      &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans            &trans  &trans         &trans    &trans         &trans   &kp F12
-&trans     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &to_layer_0 J  &kp UP    &to_layer_0 L  &trans   &trans
+&trans     &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans            &trans  &trans         &trans    &trans         &trans   &kp F12
+&none      &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &to_layer_0 J  &kp UP    &to_layer_0 L  &trans   &trans
 &trans     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &kp LEFT       &kp DOWN  &kp RIGHT      &trans   &trans
 &trans     &none           &trans  &trans  &trans  &trans                                      &trans  &trans                                                   &trans
             >;
