@@ -162,6 +162,12 @@
             key-positions = <14 15>;
             layers = <0 1>;
         };
+
+        YEN_combo {
+            bindings = <&kp INTERNATIONAL_3>;
+            key-positions = <30 31>;
+            layers = <0 1>;
+        };
     };
 
     keymap {
