@@ -14,7 +14,8 @@
 #define LOWER    2
 #define RAISE    3
 #define ADJUST   4
-#define SCROLL   2
+#define SCROLL_VERTIAL   2
+#define SCROLL_HORIZONTAL   3
 
 // スクロール量の設定
 
@@ -35,11 +36,19 @@
         >;
     };
     // スクロール
-    scroller {
-        layers = <SCROLL>;
+    scroller_vertical {
+        layers = <SCROLL_VERTIAL>;
         input-processors = <
                             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
-                            &zip_xy_scaler 1 20
+                            &zip_xy_scaler 0 20
+                            &zip_xy_to_scroll_mapper
+        >;
+    };
+    scroller_horizontal {
+        layers = <SCROLL_HORIZONTAL>;
+        input-processors = <
+                            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
+                            &zip_xy_scaler 20 0
                             &zip_xy_to_scroll_mapper
         >;
     };
