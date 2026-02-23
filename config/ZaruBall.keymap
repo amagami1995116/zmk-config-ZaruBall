@@ -15,7 +15,6 @@
 #define RAISE    3
 #define ADJUST   4
 #define SCROLL_VERTICAL   2
-#define SCROLL_HORIZONTAL   3
 
 // スクロール量の設定
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
@@ -35,19 +34,11 @@
         >;
     };
     // スクロール
-    scroller_vertical {
-        layers = <SCROLL_VERTICAL>;
+    scroller {
+        layers = <SCROLL>;
         input-processors = <
-                            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
-                            &zip_xy_scaler 0 20
-                            &zip_xy_to_scroll_mapper
-        >;
-    };
-    scroller_horizontal {
-        layers = <SCROLL_HORIZONTAL>;
-        input-processors = <
-                            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
-                            &zip_xy_scaler 20 0
+                            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT| INPUT_TRANSFORM_X_INVERT)
+                            &zip_xy_scaler 0 40
                             &zip_xy_to_scroll_mapper
         >;
     };
