@@ -36,7 +36,7 @@
     };
     // スクロール
     scroller_vertical {
-        layers = <SCROLL_VERTIAL>;
+        layers = <SCROLL_VERTICAL>;
         input-processors = <
                             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
                             &zip_xy_scaler 0 20
