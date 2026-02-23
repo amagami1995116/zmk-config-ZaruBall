@@ -38,14 +38,7 @@
 };
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        tri_layer {
-            if-layers = <2 3>;
-            then-layer = <0>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
 
 / {
@@ -60,32 +53,7 @@
             tap-ms = <20>; // スクロールのタップ時間
         };
 
-        td0: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mt LALT LANG2>, <&mo RAISE>, <&mo MOUSE>;
-        };
-
-        td1: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mt RCTL LANG1>, <&mo RAISE>, <&mo MOUSE>;
-        };
-
         // Customed Hold-Tap for SandS
-
-        SandS: SandS {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-unless-interrupted";
-            tapping-term-ms = <500>;
-            quick-tap-ms = <500>;
-            bindings = <&kp>, <&kp>;
-
-            display-name = "SandS";
-        };
 
         LR_shift: LR_shift {
             compatible = "zmk,behavior-tap-dance";
@@ -134,18 +102,28 @@
         Caret_combo {
             bindings = <&kp EQUAL>;
             key-positions = <14 15>;
-            layers = <0 1>;
+            layers = <0>;
         };
 
         YEN_combo {
             bindings = <&kp INTERNATIONAL_3>;
             key-positions = <30 31>;
-            layers = <0 1>;
+            layers = <0>;
         };
 
-        n {
+        NumLock {
             bindings = <&kp KP_NUMLOCK>;
-            key-positions = <57 9>;
+            key-positions = <9 57>;
+        };
+
+        NumLock2 {
+            bindings = <&kp KP_NUMLOCK>;
+            key-positions = <60 6>;
+        };
+
+        aaaaa {
+            bindings = <&mo 3>;
+            key-positions = <32 73>;
         };
     };
 
@@ -156,11 +134,11 @@
             display-name = "Base";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4         &kp N5                   &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
-&kp TAB    &kp Q   &kp W   &kp E     &kp R          &kp T                    &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp LBKT
-&mo 3      &kp A   &kp S   &kp D     &kp F          &kp G      &kp INS       &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&LR_shift  &kp Z   &kp X   &kp C     &kp V          &kp B      &kp DELETE    &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp INTERNATIONAL_1
-&kp LCTRL  &none           &kp LWIN  &kp RIGHT_ALT  &kp SPACE  &mo SCROLL                                                            &kp BACKSPACE      &kp ENTER                                           &mo 4
+&kp ESC    &kp N1  &kp N2  &kp N3    &kp N4         &kp N5                    &kp KP_N7     &kp KP_N8  &kp KP_N9   &kp KP_DIVIDE                         &kp NUMBER_6  &kp N7  &kp N8     &kp N9   &kp N0    &kp MINUS
+&kp TAB    &kp Q   &kp W   &kp E     &kp R          &kp T                     &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp LBKT
+&mo 2      &kp A   &kp S   &kp D     &kp F          &kp G      &kp INS        &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
+&LR_shift  &kp Z   &kp X   &kp C     &kp V          &kp B      &kp DELETE     &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &kp INTERNATIONAL_1
+&kp LCTRL  &none           &kp LWIN  &kp RIGHT_ALT  &kp SPACE  &lt 1 ENTER                                                            &kp BACKSPACE      &kp ENTER                                           &mo 4
             >;
         };
 
@@ -168,11 +146,11 @@
             display-name = "Mouse";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&kp GRAVE  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &trans  &trans  &trans  &trans            &kp F6  &kp F7         &kp F8    &kp F9         &kp F10  &kp F11
-&trans     &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans            &trans  &trans         &trans    &trans         &trans   &kp F12
-&trans     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &to_layer_0 J  &kp UP    &to_layer_0 L  &trans   &trans
-&trans     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &kp LEFT       &kp DOWN  &kp RIGHT      &trans   &trans
-&trans     &none           &trans  &trans  &trans  &trans                                      &trans  &trans                                                   &trans
+&kp GRAVE  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &trans  &trans  &trans  &trans            &kp F6  &kp F7     &kp F8    &kp F9     &kp F10  &kp F11
+&trans     &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans            &trans  &trans     &trans    &trans     &trans   &kp F12
+&trans     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &mkp LCLK  &kp UP    &mkp RCLK  &trans   &trans
+&trans     &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans    &trans  &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &trans   &trans
+&trans     &none           &trans  &trans  &trans  &trans                                      &trans  &trans                                           &trans
             >;
         };
 
