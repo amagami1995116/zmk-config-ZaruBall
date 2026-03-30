@@ -69,12 +69,15 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
             tap-ms = <20>; // スクロールのタップ時間
         };
+
         scroll_right_left: behavior_sensor_rotate_mouse_wheel_right_left {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
+
             tap-ms = <20>; // スクロールのタップ時間
         };
     };
@@ -141,7 +144,7 @@
 
         lower_layer {
             display-name = "Lower";
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&scroll_right_left>;
             bindings = <
 &kp GRAVE  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &trans  &trans  &trans  &trans            &kp F6  &kp F7    &kp F8         &kp F9   &kp F10  &kp F11
 &trans     &trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans            &trans  &trans    &trans         &trans   &trans   &kp F12
