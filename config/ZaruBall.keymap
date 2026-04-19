@@ -99,7 +99,7 @@
         };
 
         scroll_vertical_behavior: scroll_vertical_behavior {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,input-processor-sensor-rotate";
             #sensor-binding-cells = <0>;
             #input-processor-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
@@ -107,7 +107,7 @@
         };
 
         scroll_horizontal_behavior: scroll_horizontal_behavior {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,input-processor-sensor-rotate";
             #sensor-binding-cells = <0>;
             #input-processor-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
