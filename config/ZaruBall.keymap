@@ -103,6 +103,7 @@
         scroll_vertical: scroll_vertical {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
+            #input-processor-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
             tap-ms = <20>;
         };
@@ -110,6 +111,7 @@
         scroll_horizontal: scroll_horizontal {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
+            #input-processor-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
             tap-ms = <20>;
         };
@@ -119,7 +121,6 @@
             label = "TD_LAYER1_TOGGLE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-
             bindings = <
                 &none      // 1タップ → 何もしない（必要なら変更可）
                 &tog 1     // 2タップ → レイヤー1トグル
