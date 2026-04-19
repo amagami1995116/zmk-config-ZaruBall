@@ -50,20 +50,20 @@
     };
 
     vertical_scroll {
-        layers = <2>;   // LOWER レイヤー
+        layers = <2>;   // LOWER
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
             &zip_xy_scaler 1 20
-            &zip_xy_to_scroll_mapper_vertical
+            &scroll_vertical
         >;
     };
 
     horizontal_scroll {
-        layers = <3>;   // RAISE レイヤー
+        layers = <3>;   // RAISE
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
             &zip_xy_scaler 1 20
-            &zip_xy_to_scroll_mapper_horizontal
+            &scroll_horizontal
         >;
     };
 
@@ -98,6 +98,20 @@
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
 
             tap-ms = <20>; // スクロールのタップ時間
+        };
+
+        scroll_vertical: scroll_vertical {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>;
+        };
+
+        scroll_horizontal: scroll_horizontal {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+            tap-ms = <20>;
         };
 
         td_layer1_toggle: td_layer1_toggle {
