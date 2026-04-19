@@ -22,3 +22,12 @@
 &left_encoder {
     status = "okay";
 };
+
+/ {
+    ws2812_left: ws2812_left {
+        compatible = "zmk,ws2812";
+        label = "WS2812_LEFT";
+        chain-length = <10>;
+        pin = <&xiao_d 7>;   // ← 左手LEDのDIN
+    };
+};
