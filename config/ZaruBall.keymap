@@ -135,7 +135,7 @@
             bindings = < &mo_4 &td_layer1_toggle >;
             >;
         };
-
+　
         mo_4: mo_4 {
             compatible = "zmk,behavior-momentary-layer";
             #binding-cells = <0>;
