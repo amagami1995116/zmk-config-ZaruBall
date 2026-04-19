@@ -22,3 +22,22 @@
 &left_encoder {
     status = "okay";
 };
+
+/ {
+    leds {
+        compatible = "pwm-leds";
+
+        led_r_left: led_r_left {
+            pwms = <&pwm0 26 1000000>;
+            label = "XIAO_LEFT_R";
+        };
+        led_g_left: led_g_left {
+            pwms = <&pwm0 30 1000000>;
+            label = "XIAO_LEFT_G";
+        };
+        led_b_left: led_b_left {
+            pwms = <&pwm0 6 1000000>;
+            label = "XIAO_LEFT_B";
+        };
+    };
+};
