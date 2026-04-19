@@ -28,6 +28,6 @@
         compatible = "zmk,ws2812";
         label = "WS2812_LEFT";
         chain-length = <10>;
-        pin = <&xiao_d 7>;   // ← 左手LEDのDIN
+        pin = <&xiao_d 8>;   // ← 左手LEDのDIN
     };
 };
