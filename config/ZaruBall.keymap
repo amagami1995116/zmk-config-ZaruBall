@@ -69,6 +69,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
             tap-ms = <20>; // スクロールのタップ時間
         };
 
@@ -76,6 +77,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
             tap-ms = <20>; // スクロールのタップ時間
         };
 
@@ -90,21 +92,19 @@
             >;
         };
 
-       ht_layer4_momentary: ht_layer4_momentary {
-           compatible = "zmk,behavior-hold-tap";
-           #binding-cells = <2>;
-           tapping-term-ms = <200>;
-           flavor = "hold-preferred";
-
-           bindings = < &mo4_set &td_layer1_toggle >;
-       };
+        ht_layer4_momentary: ht_layer4_momentary {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = < &mo4_set &td_layer1_toggle >;
+        };
 
         mo4_set: mo4_set {
             compatible = "zmk,behavior-layer-set";
             #binding-cells = <0>;
             layer = <4>;
         };
-
     };
 };
 
@@ -151,7 +151,7 @@
 &kp TAB         &kp Q   &kp W   &kp E     &kp R         &kp T                     &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY                       &kp Y         &kp U   &kp I      &kp O    &kp P     &kp LBKT
 &mo 2           &kp A   &kp S   &kp D     &kp F         &kp G      &kp INS        &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp RIGHT_BRACKET  &kp H         &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LEFT_SHIFT  &kp Z   &kp X   &kp C     &kp V         &kp B      &kp DELETE     &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp BACKSLASH      &kp N         &kp M   &kp COMMA  &kp DOT  &kp FSLH  &mt RIGHT_SHIFT INTERNATIONAL_1
-&kp LCTRL       &none           &kp LWIN  &kp LEFT_ALT  &kp SPACE  &lt 1 ENTER                                                            &kp BACKSPACE      &kp ENTER                                           &mo 4
+&kp LCTRL       &none           &kp LWIN  &kp LEFT_ALT  &kp SPACE  &lt 1 ENTER                                                            &kp BACKSPACE      &kp ENTER                                           &ht_layer4_momentary 0 0
             >;
         };
 
