@@ -132,10 +132,14 @@
             tapping-term-ms = <200>;
             hold-trigger-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <
-                &mo 4                // 長押し → レイヤー4 momentary
-                &td_layer1_toggle   // タップ → Tap Dance に渡す
+            bindings = < &mo_4 &td_layer1_toggle >;
             >;
+        };
+
+        mo_4: mo_4 {
+            compatible = "zmk,behavior-momentary-layer";
+            #binding-cells = <0>;
+            layer = <4>;
         };
 
     };
