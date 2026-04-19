@@ -48,6 +48,25 @@
                             &zip_xy_to_scroll_mapper
         >;
     };
+
+    vertical_scroll {
+        layers = <2>;   // LOWER レイヤー
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
+            &zip_xy_scaler 1 20
+            &zip_xy_to_scroll_mapper_vertical
+        >;
+    };
+
+    horizontal_scroll {
+        layers = <3>;   // RAISE レイヤー
+        input-processors = <
+            &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
+            &zip_xy_scaler 1 20
+            &zip_xy_to_scroll_mapper_horizontal
+        >;
+    };
+
 };
 
 / {
@@ -80,6 +99,33 @@
 
             tap-ms = <20>; // スクロールのタップ時間
         };
+
+        td_layer1_toggle: td_layer1_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_LAYER1_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+
+            bindings = <
+                &none      // 1タップ → 何もしない（必要なら変更可）
+                &tog 1     // 2タップ → レイヤー1トグル
+            >;
+        };
+
+        ht_layer4_momentary: ht_layer4_momentary {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_LAYER4_MO";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            hold-trigger-ms = <200>;
+            flavor = "hold-preferred";
+
+            bindings = <
+                &mo 4                // 長押し → レイヤー4 momentary
+                &td_layer1_toggle   // タップ → Tap Dance に渡す
+            >;
+        };
+
     };
 };
 
