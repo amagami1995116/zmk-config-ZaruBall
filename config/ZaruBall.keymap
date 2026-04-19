@@ -137,7 +137,6 @@
         mo_4: mo_4 {
             compatible = "zmk,behavior-momentary-layer";
             #binding-cells = <1>;
-            layer = <4>;
         };
 
     };
