@@ -54,7 +54,7 @@
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
             &zip_xy_scaler 1 20
-            &scroll_vertical
+            &scroll_vertical_behavior
         >;
     };
 
@@ -63,7 +63,7 @@
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
             &zip_xy_scaler 1 20
-            &scroll_horizontal
+            &scroll_horizontal_behavior
         >;
     };
 
@@ -88,7 +88,6 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-
             tap-ms = <20>; // スクロールのタップ時間
         };
 
@@ -96,11 +95,10 @@
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-
             tap-ms = <20>; // スクロールのタップ時間
         };
 
-        scroll_vertical: scroll_vertical {
+        scroll_vertical_behavior: scroll_vertical_behavior {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             #input-processor-cells = <0>;
@@ -108,7 +106,7 @@
             tap-ms = <20>;
         };
 
-        scroll_horizontal: scroll_horizontal {
+        scroll_horizontal_behavior: scroll_horizontal_behavior {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             #input-processor-cells = <0>;
@@ -134,7 +132,6 @@
             tapping-term-ms = <200>;
             hold-trigger-ms = <200>;
             flavor = "hold-preferred";
-
             bindings = <
                 &mo 4                // 長押し → レイヤー4 momentary
                 &td_layer1_toggle   // タップ → Tap Dance に渡す
